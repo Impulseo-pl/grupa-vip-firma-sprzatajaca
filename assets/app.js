@@ -18,6 +18,25 @@
     });
   }
 
+  /* ---------- menu rozwijane (usługi) ---------- */
+  document.querySelectorAll('.has-sub').forEach(function (box) {
+    var btn = box.querySelector('.sub-btn');
+    var sub = box.querySelector('.sub');
+    if (!btn || !sub) return;
+    function zamknij() { sub.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = sub.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    box.addEventListener('mouseenter', function () {
+      sub.classList.add('open'); btn.setAttribute('aria-expanded', 'true');
+    });
+    box.addEventListener('mouseleave', zamknij);
+    document.addEventListener('click', zamknij);
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') zamknij(); });
+  });
+
   /* ---------- mapa obszaru działania ---------- */
   var svg = document.getElementById('mapa-pl');
   if (!svg) return;
