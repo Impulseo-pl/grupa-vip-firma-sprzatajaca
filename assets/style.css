@@ -182,7 +182,7 @@ a.card:hover{border-color:#cfd4d9;box-shadow:var(--shadow-lg);transform:translat
 #mapa-pl path.lvl-3{fill:#f3c9ca}
 #mapa-pl path.active-area{cursor:pointer}
 #mapa-pl path.active-area:hover{fill:var(--red-dark)}
-#mapa-pl path.is-sel{fill:#7d0000}
+#mapa-pl path.is-sel{stroke:#14171a;stroke-width:2.2}
 #mapa-pl .pin{cursor:pointer}
 #mapa-pl .pin circle{fill:#14171a;stroke:#fff;stroke-width:2.5;transition:r .15s,fill .15s}
 #mapa-pl .pin:hover circle,#mapa-pl .pin.is-sel circle{fill:var(--gold);r:9}
