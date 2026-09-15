@@ -180,6 +180,10 @@ a.card:hover{border-color:#cfd4d9;box-shadow:var(--shadow-lg);transform:translat
 #mapa-pl path.active-area{cursor:pointer}
 #mapa-pl path.active-area:hover{fill:#cf5e61}
 #mapa-pl path.is-sel{fill:var(--red);stroke:#fff;stroke-width:2}
+/* bez niebieskiej ramki przeglądarki po kliknięciu; przy klawiaturze zaznaczamy obrysem */
+#mapa-pl path:focus,#mapa-pl .pin:focus{outline:none}
+#mapa-pl path:focus-visible{outline:none;stroke:#14171a;stroke-width:2.5}
+#mapa-pl .pin:focus-visible circle{stroke:#14171a;stroke-width:3}
 #mapa-pl .pin{cursor:pointer}
 #mapa-pl .pin circle{fill:#4a3234;stroke:#fff;stroke-width:1.6;transition:r .15s,fill .15s}
 #mapa-pl .pin-duze circle{fill:#14171a;stroke-width:2}
