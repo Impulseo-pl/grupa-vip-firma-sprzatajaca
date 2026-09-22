@@ -6,7 +6,11 @@
   --line:#e3e6e9;
   --bg:#ffffff;
   --bg-soft:#f6f7f8;
-  --bg-dark:#101316;
+  --bg-dark:#122043;
+  --navy:#122043;
+  --navy-2:#27406f;
+  --navy-3:#3a5a95;
+  --navy-light:#8ba3cf;
   --red:#c00000;
   --red-dark:#9d0000;
   --gold:#d4a72c;
@@ -99,17 +103,15 @@ section{padding-block:clamp(48px,7vw,86px)}
 
 /* ---------- hero ---------- */
 .hero{position:relative;color:#fff;isolation:isolate;padding-block:clamp(60px,9vw,112px)}
-.hero::after{
-  content:"";position:absolute;inset:0;z-index:-1;
-  background:linear-gradient(100deg,rgba(16,19,22,.93) 0%,rgba(16,19,22,.82) 45%,rgba(16,19,22,.55) 100%);
-}
+.hero .wrap{position:relative;z-index:1}
+.hero h1,.hero p,.hero-tag,.hero .btn-ghost{text-shadow:0 2px 4px rgba(10,18,38,.8),0 0 22px rgba(10,18,38,.7)}
 .hero-bg{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover}
 .hero h1{max-width:17ch;margin-bottom:.35em}
-.hero p{font-size:1.12rem;color:rgba(255,255,255,.88);max-width:54ch}
+.hero p{font-size:1.12rem;color:#fff;max-width:54ch}
 .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
 .hero-tag{
-  display:inline-block;background:rgba(255,255,255,.12);
-  border:1px solid rgba(255,255,255,.22);border-radius:999px;
+  display:inline-block;background:rgba(18,32,67,.42);
+  border:1px solid rgba(255,255,255,.3);border-radius:999px;
   padding:.45em 1.1em;font-size:.85rem;font-weight:550;margin-bottom:20px;
   line-height:1.4;text-wrap:balance;
 }
@@ -174,23 +176,23 @@ a.card:hover{border-color:#cfd4d9;box-shadow:var(--shadow-lg);transform:translat
 }
 #mapa-pl{width:100%;height:auto;display:block;touch-action:manipulation}
 #mapa-pl path{
-  fill:#e3898b;stroke:#fff;stroke-width:1.4;stroke-linejoin:round;
+  fill:var(--navy-2);stroke:#fff;stroke-width:1.4;stroke-linejoin:round;
   transition:fill .16s;
 }
 #mapa-pl path.active-area{cursor:pointer}
-#mapa-pl path.active-area:hover{fill:#cf5e61}
-#mapa-pl path.is-sel{fill:var(--red);stroke:#fff;stroke-width:2}
+#mapa-pl path.active-area:hover{fill:var(--navy-3)}
+#mapa-pl path.is-sel{fill:var(--navy-light);stroke:#fff;stroke-width:2}
 /* bez niebieskiej ramki przeglądarki po kliknięciu; przy klawiaturze zaznaczamy obrysem */
 #mapa-pl path:focus,#mapa-pl .pin:focus{outline:none}
-#mapa-pl path:focus-visible{outline:none;stroke:#14171a;stroke-width:2.5}
-#mapa-pl .pin:focus-visible circle{stroke:#14171a;stroke-width:3}
+#mapa-pl path:focus-visible{outline:none;stroke:var(--navy);stroke-width:2.5}
+#mapa-pl .pin:focus-visible circle{stroke:var(--navy);stroke-width:3}
 #mapa-pl .pin{cursor:pointer}
-#mapa-pl .pin circle{fill:#4a3234;stroke:#fff;stroke-width:1.6;transition:r .15s,fill .15s}
-#mapa-pl .pin-duze circle{fill:#14171a;stroke-width:2}
-#mapa-pl .pin.w-sel circle{fill:#fff;stroke:#14171a;stroke-width:2}
+#mapa-pl .pin circle{fill:#fff;stroke:var(--navy);stroke-width:1.6;transition:r .15s,fill .15s}
+#mapa-pl .pin-duze circle{fill:#fff;stroke-width:2}
+#mapa-pl .pin.w-sel circle{fill:var(--navy);stroke:#fff;stroke-width:2}
 #mapa-pl .pin:hover circle,#mapa-pl .pin.is-sel circle{fill:var(--gold);r:8}
 #mapa-pl .pin text{
-  font:650 11px var(--sans);fill:#14171a;paint-order:stroke;
+  font:650 11px var(--sans);fill:var(--navy);paint-order:stroke;
   stroke:#fff;stroke-width:3.5px;stroke-linejoin:round;pointer-events:none;
   opacity:0;transition:opacity .16s;
 }
@@ -200,7 +202,7 @@ a.card:hover{border-color:#cfd4d9;box-shadow:var(--shadow-lg);transform:translat
 #mapa-pl .pin:hover text,
 #mapa-pl .pin.is-sel text{opacity:1}
 #mapa-pl .pin-duze text{font-size:12.5px;font-weight:700}
-#mapa-pl .pin.w-sel text,#mapa-pl .pin.is-sel text{fill:#14171a;font-weight:700}
+#mapa-pl .pin.w-sel text,#mapa-pl .pin.is-sel text{fill:var(--navy);font-weight:700}
 /* na telefonie mapa jest mała: podpisy tylko dla wybranego regionu, za to większe */
 @media(max-width:820px){
   #mapa-pl .pin text{opacity:0;font-size:20px;stroke-width:5px}
@@ -211,7 +213,7 @@ a.card:hover{border-color:#cfd4d9;box-shadow:var(--shadow-lg);transform:translat
 }
 .map-tip{
   position:absolute;z-index:5;pointer-events:none;opacity:0;transform:translate(-50%,-140%);
-  background:var(--ink);color:#fff;font-size:.82rem;font-weight:600;
+  background:var(--navy);color:#fff;font-size:.82rem;font-weight:600;
   padding:.35em .7em;border-radius:7px;white-space:nowrap;transition:opacity .12s;
 }
 .map-tip.show{opacity:1}
@@ -263,6 +265,7 @@ form.quote{background:#fff;border:1px solid var(--line);border-radius:var(--radi
 .contact-card{background:var(--bg-dark);color:#fff;border-radius:var(--radius);padding:26px}
 .contact-card h3{color:#fff;font-size:1.08rem}
 .contact-card a{color:#fff;text-decoration:none;font-weight:650}
+.contact-card .sub-list a{color:inherit}
 .contact-card .row{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.12);font-size:.94rem}
 .contact-card .row:last-child{border-bottom:0}
 .contact-card .k{color:rgba(255,255,255,.55);flex:0 0 78px;font-size:.86rem}
